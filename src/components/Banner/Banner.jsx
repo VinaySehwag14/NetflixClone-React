@@ -9,7 +9,7 @@ const Banner = () => {
   useEffect(() => {
     const fetchData = async () => {
       const request = await axios.get(requests.fetchNetflixOriginals);
-      console.log(request.data.results, "this is my req data");
+      //   console.log(request.data.results, "this is my req data");
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
@@ -20,7 +20,7 @@ const Banner = () => {
     fetchData();
   }, []);
 
-  console.log(movie, "this is random movie");
+  //   console.log(movie, "this is random movie");
 
   //* function to make ... description if it larger than 100
   const truncate = (string, n) => {
