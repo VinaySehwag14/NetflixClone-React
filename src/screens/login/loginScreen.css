@@ -36,6 +36,8 @@
   margin-right: auto;
   padding: 20px;
   position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .loginScreen__body > h1 {

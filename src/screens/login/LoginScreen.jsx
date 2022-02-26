@@ -1,7 +1,7 @@
 import React from "react";
 import "./loginScreen.css";
 import { useState } from "react";
-import SignInScreen from "../SignIn/SignInScreen";
+import SignUpScreen from "../SignUp/SignUpScreen";
 
 const LoginScreen = () => {
   const [signIn, setSignIn] = useState(false);
@@ -22,7 +22,7 @@ const LoginScreen = () => {
 
       <div className="loginScreen__body">
         {signIn ? (
-          <SignInScreen />
+          <SignUpScreen />
         ) : (
           <>
             <h1>Unlimited films, TV programmes and more.</h1>
