@@ -4,16 +4,29 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "./screens/login/LoginScreen";
 import { auth } from "./firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout } from "./features/userSlice";
 
 const App = () => {
-  const user = null;
+  //* useSelector To access state from redux store
+  const user = useSelector((state) => state.user.user);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        //*Logged in
+        //* When Logged in
         console.log(userAuth);
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
       } else {
+        //* When Logged Out
+        dispatch(logout);
       }
     });
 
