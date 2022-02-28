@@ -6,7 +6,9 @@ import LoginScreen from "./screens/login/LoginScreen";
 import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./features/userSlice";
+import ProfileScreen from "./screens/profile/ProfileScreen";
 
+//* App component
 const App = () => {
   //* useSelector To access state from redux store
   const user = useSelector((state) => state.user.user);
@@ -26,14 +28,14 @@ const App = () => {
         );
       } else {
         //* When Logged Out
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -43,6 +45,7 @@ const App = () => {
         ) : (
           <Routes>
             <Route path="/" element={<HomeScreen />} />
+            <Route path="/profile" element={<ProfileScreen />} />
           </Routes>
         )}
       </BrowserRouter>
