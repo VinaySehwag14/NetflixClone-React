@@ -4,7 +4,7 @@ import { useState } from "react";
 import SignUpScreen from "../SignUp/SignUpScreen";
 
 const LoginScreen = () => {
-  const [signIn, setSignIn] = useState(false);
+  const [signIn, setSignIn] = useState(true);
 
   return (
     <div className="loginScreen">
